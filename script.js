@@ -25,7 +25,7 @@ function calcularCostoProduccion(cantidadMaterial, precioFilamento) {
 
 document.getElementById('calcular').addEventListener('click', function() {
     let tipoFilamento = document.getElementById('filamento').value;
-    let precioFilamento = parseFloat(document.getElementById('precioFilamento').value);
+    let precioFilamento = parseInt(document.getElementById('precioFilamento').value);
     let cantidadMaterialgr = document.getElementById('cantidadMaterial').value;
 
     if (isNaN(precioFilamento) || precioFilamento <= 0) {
@@ -38,7 +38,7 @@ document.getElementById('calcular').addEventListener('click', function() {
         return;
     }
 
-    let cantidadMaterial = parseFloat(cantidadMaterialgr) / 1000; // Convertir gramos a kilogramos
+    let cantidadMaterial = parseInt(cantidadMaterialgr) / 1000; // Convierte gramos a kilogramos
     let costoTotal = calcularCostoProduccion(cantidadMaterial, precioFilamento);
 
     document.getElementById('result').innerHTML = `
