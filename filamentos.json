@@ -1,14 +1,12 @@
 [
     {
-        "filamento": "PLA",
-        "preciokg": 15000
+        "filamento": "PLA"
     },
     {
-        "filamento": "ABS",
-        "preciokg": 15000
+        "filamento": "ABS"
+
     },
     {
-        "filamento": "PETG",
-        "preciokg": 15000
+        "filamento": "PETG"
     }
 ]

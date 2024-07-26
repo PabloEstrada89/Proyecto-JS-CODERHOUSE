@@ -1,7 +1,7 @@
 let filamentoSeleccionado = null;
 let filamentosData = [];
 
-// Cargar datos de filamentos desde el archivo JSON
+// cargar datos de filamentos desde el archivo JSON
 fetch('filamentos.json')
     .then(response => response.json())
     .then(data => {
@@ -10,7 +10,7 @@ fetch('filamentos.json')
     })
     .catch(error => console.error('Error al cargar los filamentos:', error));
 
-// Crear botones para cada filamento
+// crear botones para cada filamento
 function crearBotonesFilamento() {
     const selectorDiv = document.getElementById('filamento-selector');
     filamentosData.forEach(filamento => {
@@ -25,7 +25,7 @@ function crearBotonesFilamento() {
     });
 }
 
-// Función para actualizar la selección de filamento
+// función para actualizar la selección de filamento
 function actualizarSeleccionFilamento(filamento) {
     filamentoSeleccionado = filamento;
     document.querySelectorAll('.filamento-btn').forEach(btn => {
@@ -34,13 +34,13 @@ function actualizarSeleccionFilamento(filamento) {
     document.querySelector(`.filamento-btn[data-filamento="${filamento}"]`).classList.add('selected');
 }
 
-// Función para calcular el costo de producción
+// función para calcular el costo de producción
 function calcularCostoProduccion(cantidadMaterial, precioFilamento) {
     let costoTotal = cantidadMaterial * precioFilamento;
     return costoTotal;
 }
 
-// Función para manejar el cálculo de costos
+// función para manejar el cálculo de costos
 function manejarCalculoCosto() {
     if (!filamentoSeleccionado) {
         Swal.fire('Error', 'Por favor selecciona un tipo de filamento', 'error');
@@ -60,7 +60,8 @@ function manejarCalculoCosto() {
         return;
     }
 
-    const cantidadMaterial = cantidadMaterialgr / 1000; // Convertir gramos a kilogramos
+// convertir gramos a kilogramos
+    const cantidadMaterial = cantidadMaterialgr / 1000; 
     const costoTotal = calcularCostoProduccion(cantidadMaterial, precioFilamento);
 
     const resultDiv = document.getElementById('result');
@@ -70,7 +71,7 @@ function manejarCalculoCosto() {
         <p>Costo total de producción: $${costoTotal.toFixed(2)} ARS</p>
     `;
 
-    // Guardar en localStorage
+// guardar en localStorage
     const historial = JSON.parse(localStorage.getItem('historial')) || [];
     historial.push({
         filamento: filamentoSeleccionado,
@@ -82,14 +83,14 @@ function manejarCalculoCosto() {
 
     Swal.fire('Costo Calculado', `Costo total de producción: $${costoTotal.toFixed(2)} ARS`, 'success');
 
-    // Actualizar historial en la página
+// actualizar historial en la página
     actualizarHistorial();
 }
 
-// Event listener para el botón de calcular
+// event para el botón de calcular
 document.getElementById('calcular').addEventListener('click', manejarCalculoCosto);
 
-// Event listener para el botón de eliminar historial
+// event para el botón de eliminar historial
 document.getElementById('eliminarHistorial').addEventListener('click', function() {
     localStorage.removeItem('historial');
     document.getElementById('result').innerHTML = '';
