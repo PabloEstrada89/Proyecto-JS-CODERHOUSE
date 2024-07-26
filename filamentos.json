@@ -1,0 +1,14 @@
+[
+    {
+        "filamento": "PLA",
+        "preciokg": 15000
+    },
+    {
+        "filamento": "ABS",
+        "preciokg": 15000
+    },
+    {
+        "filamento": "PETG",
+        "preciokg": 15000
+    }
+]

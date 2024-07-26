@@ -13,18 +13,18 @@
         button { padding: 10px 15px; background-color: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
         button:hover { background-color: #ea4411; }
         .result { margin-top: 20px; }
+        h1 {color:black}
+        .filamento-btn { margin: 5px; }
+        .filamento-btn.selected { background-color: #ea4411; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="calculadora">
         <h1>Simulador de Costos de Impresión de Piezas 3D</h1>
-        <div class="selector">
-            <label for="filamento">Selecciona el Filamento:</label>
-            <select id="filamento">
-                <option value="PLA">PLA</option>
-                <option value="ABS">ABS</option>
-                <option value="PETG">PETG</option>
-            </select>
+        <div class="selector" id="filamento-selector">
+            <label>Selecciona el Filamento:</label>
+            <!-- Botones serán generados dinámicamente -->
         </div>
         <div class="selector">
             <label for="precioFilamento">Precio del Filamento (ARS/kg):</label>
@@ -35,7 +35,8 @@
             <input type="number" id="cantidadMaterial" min="0">
         </div>
         <button id="calcular">Calcular Costo</button>
-        <div class="result" id="result"></div>
+        <button id="eliminarHistorial">Eliminar Historial</button>
+        <div class="result resultado" id="result"></div>
     </div>
 
     <script src="script.js"></script>
